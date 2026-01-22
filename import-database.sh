@@ -5,9 +5,9 @@
 echo "=== Import Database to VoteParty ==="
 
 SQL_FILES=(
-    "database/sql/registercmpnewyears.sql"
+    "database/sql/registerempnewyears.sql"
     "database/sql/newyearvotes.sql"
-    "database/sql/newyearonepath.sql"
+    "database/sql/newyearopenvote.sql"
     "database/sql/newyearimagepath.sql"
 )
 

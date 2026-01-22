@@ -4,9 +4,9 @@
 Write-Host "=== Import Database to VoteParty ===" -ForegroundColor Green
 
 $sqlFiles = @(
-    "database/sql/registercmpnewyears.sql",
+    "database/sql/registerempnewyears.sql",
     "database/sql/newyearvotes.sql",
-    "database/sql/newyearonepath.sql",
+    "database/sql/newyearopenvote.sql",
     "database/sql/newyearimagepath.sql"
 )
 

@@ -25,14 +25,14 @@ WORKDIR /var/www/html
 # Copy composer files first for better caching
 COPY composer.json composer.lock ./
 
-# Install PHP dependencies
-RUN composer install --no-interaction --no-scripts --no-autoloader --prefer-dist
+# Install PHP dependencies (include dev for service providers)
+RUN composer install --no-interaction --no-scripts --prefer-dist
 
 # Copy application code
 COPY . .
 
 # Generate optimized autoload files
-RUN composer dump-autoload --optimize --no-dev
+RUN composer dump-autoload --optimize
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html \

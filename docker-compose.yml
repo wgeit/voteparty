@@ -1,0 +1,69 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: voteparty_app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/sites-available/default
+    ports:
+      - "8000:80"
+    networks:
+      - voteparty_network
+    depends_on:
+      - db
+      - redis
+    environment:
+      - APP_ENV=production
+      - APP_DEBUG=false
+
+  db:
+    image: mysql:8.0
+    container_name: voteparty_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: voteparty
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_USER: voteparty_user
+      MYSQL_PASSWORD: voteparty_pass
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - voteparty_network
+
+  redis:
+    image: redis:alpine
+    container_name: voteparty_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    networks:
+      - voteparty_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: voteparty_phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "8080:80"
+    networks:
+      - voteparty_network
+    depends_on:
+      - db
+
+networks:
+  voteparty_network:
+    driver: bridge
+
+volumes:
+  db_data:
+    driver: local

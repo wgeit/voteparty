@@ -72,7 +72,7 @@
         </div>
         <h1 class="text-4xl font-bold gradient-text mb-2">The Vote</h1>
         <p class="text-gray-600 text-sm">New Year Party 2026</p>
-        <p class="text-gray-500 text-xs mt-1">เข้าสู่ระบบเพื่อเข้าร่วมกิจกรรมโหวต</p>
+        <p class="text-gray-500 text-xs mt-1">เข้าสู่ระบบเพื่อเข้าร่วมกิจกรรม</p>
       </div>
 
       <!-- Login Form -->

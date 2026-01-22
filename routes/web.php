@@ -43,3 +43,7 @@ Route::get('/User/IT/SpecialEvent/Vote',[SpecialEventController::class,'empVoteI
 Route::post('/User/IT/SpecialEvent/verifyCard',[SpecialEventController::class,'verifyCard']);
 Route::post('/User/IT/SpecialEvent/submitVotes',[SpecialEventController::class,'submitVotes']);
 Route::get('/User/IT/SpecialEvent/getVoteImages',[SpecialEventController::class,'getVoteImages']);
+
+Route::get('/test-db', function () {
+    dd(config('database.connections.mysql'));
+});

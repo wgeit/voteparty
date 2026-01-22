@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 21, 2026 at 02:29 AM
+-- Generation Time: Jan 22, 2026 at 07:48 AM
 -- Server version: 8.0.42
 -- PHP Version: 8.2.14
 
@@ -31,7 +31,7 @@ CREATE TABLE `registerempnewyears` (
   `Year` int NOT NULL,
   `type` varchar(5) NOT NULL,
   `id` int NOT NULL,
-  `CodePin` varchar(5) NOT NULL,
+  `CodePin` varchar(5) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `empcode` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `empname` varchar(255) NOT NULL,
   `empdiv` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
